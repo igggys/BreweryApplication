@@ -11,7 +11,7 @@ namespace ModelsLib.Products
     public class Product
     {
         public Guid ProductId { get; set; }
-        public ProductText[] ProducTexts { get; set; }
+        public ProductText[] ProductTexts { get; set; }
         public float WholesalePrice { get; set; }
         [Range(0, 60)]
         public uint AlcoholByVolume { get; set; } //
