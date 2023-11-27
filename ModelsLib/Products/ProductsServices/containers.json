@@ -1,0 +1,159 @@
+[
+  {
+    "ContainerId": "1662578F-E9BF-4CC6-A57A-B3E7E08125BC",
+    "Сapacity": 1.5,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Plastic Bottles",
+        "Language": "en"
+      },
+      {
+        "ContainerName": "Пластикові пляшки",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "C50C0FC7-1437-4179-A58B-F393710C3C60",
+    "Сapacity": 2.0,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Plastic Bottles",
+        "Language": "en"
+      },
+      {
+        "ContainerName": "Пластикові пляшки",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "E8FE61D8-2803-4364-BB92-E3E96EF8F534",
+    "Сapacity": 0.33,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Glass Bottles",
+        "Language": "en"
+      },
+      {
+        "ContainerName": "Скляні пляшки",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "3EBDB59D-F1E9-40E3-A332-F9B7CF9E5186",
+    "Сapacity": 0.5,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Glass Bottles",
+        "Language": "en"
+      },
+      {
+        "ContainerName": "Скляні пляшки",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "87D0FFEF-96D5-4150-94C3-534E66302B54",
+    "Сapacity": 0.75,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Glass Bottles",
+        "Language": "en"
+      },
+      {
+        "ContainerName": "Скляні пляшки",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "0FB7ECFE-4D97-48C8-A75B-B707C3F88E16",
+    "Сapacity": 0.33,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Aluminum Cans",
+        "Language": "en"
+      },
+      {
+        "ContainerName": "Алюмінієві банки",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "F36D7B7F-5EDB-479C-9616-C6B0A6305041",
+    "Сapacity": 50.0,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Steel Barrel",
+        "Language": "en"
+      },
+      {
+        "ContainerName": "Сталева бочка",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "41F813D3-D2CC-4845-BAEE-0F71B5AED093",
+    "Сapacity": 30.0,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Steel Barrel",
+        "Language": "en"
+      },
+      {
+        "ContainerName": "Сталева бочка",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "65B35B63-B838-40E8-8811-6473A77E850A",
+    "Сapacity": 20.0,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Steel Barrel",
+        "Language": "en"
+      },
+
+      {
+        "ContainerName": "Сталева бочка",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "97C5D71A-59E7-40DF-8D72-76DAE944FBBE",
+    "Сapacity": 19.0,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Steel Barrel",
+        "Language": "en"
+      },
+
+      {
+        "ContainerName": "Сталева бочка",
+        "Language": "uk"
+      }
+    ]
+  },
+  {
+    "ContainerId": "67F0D385-5445-4468-B07B-4E6241CFFC83",
+    "Сapacity": 10.0,
+    "ContainerTexts": [
+      {
+        "ContainerName": "Steel Barrel",
+        "Language": "en"
+      },
+
+      {
+        "ContainerName": "Сталева бочка",
+        "Language": "uk"
+      }
+    ]
+  }
+]

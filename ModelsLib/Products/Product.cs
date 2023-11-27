@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.Globalization;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ModelsLib.Products
 {
@@ -14,7 +8,7 @@ namespace ModelsLib.Products
         public ProductText[] ProductTexts { get; set; }
         public float WholesalePrice { get; set; }
         [Range(0, 60)]
-        public uint AlcoholByVolume { get; set; } //
+        public uint AlcoholByVolume { get; set; }
         [Range(0, 120)]
         public uint? InternationalBitternessUnits { get; set; }
         public EuropeanBrewingConvention EuropeanBrewingConvention { get; set; }
@@ -40,6 +34,6 @@ namespace ModelsLib.Products
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public CultureInfo Language { get; set; }
+        public string Language { get; set; }
     }
 }
