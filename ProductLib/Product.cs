@@ -12,6 +12,7 @@ namespace ModelsLib.Products
         [Range(0, 120)]
         public uint? InternationalBitternessUnits { get; set; }
         public EuropeanBrewingConvention EuropeanBrewingConvention { get; set; }
+        public Container Container { get; set; }
     }
 
     public enum EuropeanBrewingConvention
