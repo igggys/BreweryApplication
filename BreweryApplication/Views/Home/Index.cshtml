@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/css/Home/index.css" rel="stylesheet" />
+    <script src="~/js/Home/index.js"></script>
+</head>
+<body>
+    <div class="TopMenuPlace" onscrollintoview = "alert('111')">
+        <div class="TopMenuLogo"></div>
+        <div class="TopMenuItemsPlace">
+            <div class="TopMenuItem"><h1><a href="https://microsoft.com">About</a></h1></div>
+            <div class="TopMenuItem" id="ServicesMenu" onclick="ThisPage.ServicesMenuShow()">Services</div>
+        </div>
+    </div>
+    <div class="PopUpMenuPlace" id="ServicesPopupMenu">
+        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 1</a></h1></div>
+        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 2</a></h1></div>
+        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 3</a></h1></div>
+        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 4</a></h1></div>
+        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 5</a></h1></div>
+    </div>
+    <div class="VideoPlace">
+        <video class="VideoPlayer" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+            <source src="~/video/production_id_4426550.mp4" type="video/mp4" />
+        </video>
+    </div>
+    <div class="VideoPlayerBackground"></div>
+
+</body>
+</html>

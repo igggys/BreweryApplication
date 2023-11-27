@@ -1,0 +1,6 @@
+{
+  "ConnectionString": "Data Source=DESKTOP-F3PP8GH\\MSSQL2019EXPRESS;Initial Catalog=BreweryApp_LogDB;Integrated Security=True",
+  "DbShema": "dbo",
+  "ExceptionsOnly": true
+}
+
