@@ -15,4 +15,8 @@
     <ProjectReference Include="..\WLog\WLog.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

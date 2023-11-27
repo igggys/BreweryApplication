@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppTest", "WebAppTest\We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfrastructureLib", "InfrastructureLib\InfrastructureLib.csproj", "{23F72C73-36D3-405C-B2D8-6AC4DBA692E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_GisService", "WebApi_GisService\WebApi_GisService.csproj", "{BC9111E1-B269-48C5-B968-E21B500205F2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationTestWLogger", "WebApplicationTestWLogger\WebApplicationTestWLogger.csproj", "{C92FA3E9-1317-4278-8B41-394F8E0F03F3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WLog", "WLog\WLog.csproj", "{E163E657-DBC1-43AE-B4BC-4F03F1E73E1C}"
@@ -65,10 +63,6 @@ Global
 		{23F72C73-36D3-405C-B2D8-6AC4DBA692E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23F72C73-36D3-405C-B2D8-6AC4DBA692E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23F72C73-36D3-405C-B2D8-6AC4DBA692E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC9111E1-B269-48C5-B968-E21B500205F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC9111E1-B269-48C5-B968-E21B500205F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC9111E1-B269-48C5-B968-E21B500205F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC9111E1-B269-48C5-B968-E21B500205F2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C92FA3E9-1317-4278-8B41-394F8E0F03F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C92FA3E9-1317-4278-8B41-394F8E0F03F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C92FA3E9-1317-4278-8B41-394F8E0F03F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
