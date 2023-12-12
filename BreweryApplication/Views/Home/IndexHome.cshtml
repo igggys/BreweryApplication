@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IndexHome</title>
+    <link href="~/css/Home/indexHome.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="TopPanel">
+        <div class="TopPanelLogo"></div>
+        <div class="LanguagesMenuButton">
+            <div class="LanguagesIcon"></div>
+            <div class="LanguagesText">Українська</div>
+        </div>
+    </div>
+
+    <div class="PlayerPlace">
+        <video class="VideoPlayer" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
+            <source src="~/video/production_id_4426550.mp4" type="video/mp4" />
+        </video>
+    </div>
+    <div class="VideoPlayerBackground">
+        <h1>
+            Наша аплікація допомагає об'єднати виробників пива, продавців та перевізників.
+            З нами ваша співпраця стане більш ефективною, витрати менші, а споживач більш задоволений.
+        </h1>
+        <div class="BannersPlace">
+            <div class="Banner BannerBrewery">
+                Повідомте про свій продукт зацікавленим у цьому продавцям
+                @Html.Raw(ViewBag.value_join)
+            </div>
+            <div class="Banner BannerShop">
+
+            </div>
+            <div class="Banner BannerDelivery">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

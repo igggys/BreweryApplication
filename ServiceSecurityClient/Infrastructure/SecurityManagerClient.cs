@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CryptoLib;
-using ServiceSecurityClient.DataLayer;
+using ServiceSecurityServer.DataLayer;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace ServiceSecurityClient.Infrastructure
+namespace ServiceSecurityServer.Infrastructure
 {
     public class SecurityManagerClient
     {

@@ -1,4 +1,4 @@
-﻿using ServiceSecurityClient.Infrastructure;
+﻿using ServiceSecurityServer.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 
-namespace ServiceSecurityClient.DataLayer
+namespace ServiceSecurityServer.DataLayer
 {
     public class IdentityDataManager
     {
