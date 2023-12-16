@@ -117,7 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="join" xml:space="preserve">
-    <value>join_2</value>
+  <data name="ApplicationDescription" xml:space="preserve">
+    <value>Our application helps unite beer producers, sellers and transporters.
+With us, your cooperation will be more efficient, costs will be lower, and the consumer will be more satisfied.</value>
+  </data>
+  <data name="joinButtonText" xml:space="preserve">
+    <value>join now</value>
   </data>
 </root>
