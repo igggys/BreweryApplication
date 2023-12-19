@@ -66,7 +66,7 @@
     min-height: 100px;
     padding: 15px;
     background-color: #011E8F;
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 10px;
     z-index: 121;
@@ -148,8 +148,9 @@
     min-width: 80%;
     display: flex;
     flex-direction: row;
+    flex-flow: wrap;
     align-items: stretch;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: rgba(255, 255, 255, 0.2);
     padding: 15px;
     box-sizing: border-box;
@@ -176,6 +177,7 @@
     font-weight: 400;
     color: #0E2850;
     border-radius: 10px;
+    margin: 10px;
 }
 
 .BannerBrewery {
@@ -197,6 +199,9 @@
     align-items: center;
     justify-content:flex-end;
 }
+    .ButtonJoinBackground > a {
+        text-decoration: none;
+    }
 .ButtonJoin {
     width: 250px;
     height: 35px;

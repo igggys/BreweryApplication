@@ -1,4 +1,6 @@
-﻿@{
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
     Layout = null;
 }
 
@@ -21,13 +23,13 @@
     </div>
 
     <div class="LanguagesPanel" id="LanguagesPopupMenu">
-        @for (int i = 0; i < ViewBag.CulturesList.Length; ++i) { 
+        @for (int i = 0; i < ViewBag.CulturesList.Length; ++i)
+        {
             <a href="@ViewBag.CulturesList[i].DisplayUrl">
                 <div class="LanguageRecord">
                     @ViewBag.CulturesList[i].NativeName
                 </div>
             </a>
-
         }
     </div>
 
@@ -44,9 +46,11 @@
             <div class="Banner BannerBrewery">
                 Повідомте про свій продукт зацікавленим у цьому продавцям
                 <div class="ButtonJoinBackground">
-                    <div class="ButtonJoin">
-                        @Html.Raw(ViewBag.value_join)
-                    </div>
+                    <a asp-controller="Registrations" asp-action="ManufactureRegistration" asp-route-language="@ViewBag.currentCulture">
+                        <div class="ButtonJoin">
+                            @Html.Raw(ViewBag.value_join)
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="Banner BannerShop">

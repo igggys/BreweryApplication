@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/Masters/_RegistrationsLayout.css" rel="stylesheet" />
+    <script src="~/js/Masters/MasterRegistrations.js"></script>
+</head>
+<body>
+    <div class="TopPanel">
+        <div class="TopPanelLogo"></div>
+        <div class="LanguagesMenuButton" onclick="ThisPage.LanguagesMenuShow()">
+            <div class="LanguagesIcon"></div>
+            <div class="LanguagesText">@Html.Raw(ViewBag.currentLanguage)</div>
+        </div>
+    </div>
+
+    <div class="LanguagesPanel" id="LanguagesPopupMenu">
+        @for (int i = 0; i < ViewBag.CulturesList.Length; ++i)
+        {
+            <a href="@ViewBag.CulturesList[i].DisplayUrl">
+                <div class="LanguageRecord">
+                    @ViewBag.CulturesList[i].NativeName
+                </div>
+            </a>
+        }
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
