@@ -31,8 +31,7 @@ namespace WebApplicationTestWLogger.Controllers
         [Route("phone")]
         public IActionResult GetPhone(string phone)
         {
-            _phonesService.GetValidationNumber(phone);
-            return Ok();
+            return Ok(_phonesService.GetValidationNumber(phone));
         }
     }
 }

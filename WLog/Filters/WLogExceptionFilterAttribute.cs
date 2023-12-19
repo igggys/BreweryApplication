@@ -26,23 +26,22 @@ namespace WLog.Filters
         {
             if (_wLogConfigurationManager.CanRead)
             {
-                StringValues RequestIdValue;
-                Guid GuidRequestId;
-                if
-                (
-                    !context.HttpContext.Request.Headers.TryGetValue("RequestId", out RequestIdValue) ||
-                    string.IsNullOrEmpty(RequestIdValue.ToString()) ||
-                    !Guid.TryParse(RequestIdValue.ToString(), out GuidRequestId)
-                )
+                LogRecord logRecord = ((LogRecord)(context.HttpContext.Items["LogRecord"]));
+                if (logRecord == null)
                 {
-                    GuidRequestId = Guid.NewGuid();
-                }
+                    StringValues RequestIdValue;
+                    Guid GuidRequestId;
+                    if
+                    (
+                        !context.HttpContext.Request.Headers.TryGetValue("RequestId", out RequestIdValue) ||
+                        string.IsNullOrEmpty(RequestIdValue.ToString()) ||
+                        !Guid.TryParse(RequestIdValue.ToString(), out GuidRequestId)
+                    )
+                    {
+                        GuidRequestId = Guid.NewGuid();
+                    }
 
-
-                LogRecord record = ((LogRecord)(context.HttpContext.Items["LogRecord"]));
-                if (record == null)
-                {
-                    record = new()
+                    logRecord = new()
                     {
                         RequestId = GuidRequestId,
                         Arguments = string.Empty,
@@ -53,11 +52,12 @@ namespace WLog.Filters
                         End = null,
                         Messages = new()
                     };
-                    context.HttpContext.Items.Add("LogRecord", record);
+                    context.HttpContext.Items.Add("LogRecord", logRecord);
                 }
-                ((LogRecord)(context.HttpContext.Items["LogRecord"])).Exception = $"{context.Exception.Message}:\r\n{context.Exception.StackTrace}";
-                ((LogRecord)(context.HttpContext.Items["LogRecord"])).End = DateTime.UtcNow;
-                await _dataManager.WriteAsync(((LogRecord)(context.HttpContext.Items["LogRecord"])));
+
+                logRecord.Exception = $"{context.Exception.Message}:\r\n{context.Exception.StackTrace}";
+                logRecord.End = DateTime.UtcNow;
+                await _dataManager.WriteAsync(logRecord);
             }
         }
     }

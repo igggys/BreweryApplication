@@ -27,4 +27,21 @@
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneModel\PhoneModel.csproj" />
+    <ProjectReference Include="..\WLog\WLog.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="WLogSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CountryCodes.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

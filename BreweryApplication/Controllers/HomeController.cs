@@ -8,18 +8,21 @@ using Newtonsoft.Json;
 using BreweryApplication.Extensions;
 using BreweryApplication.Models;
 using Microsoft.AspNetCore.Http.Extensions;
+using PhoneModel.Services;
+using WLog;
 
 namespace BreweryApplication.Controllers
 {
     
+
     public class HomeController : Controller
     {
-
+        private readonly WLogger _logger;
         private readonly IStringLocalizer<HomeController> _localizer;
         public LanguageInfo[] _supportedCultures;
         public string _currentLanguage;
         public string _currentCulture;
-        public HomeController(IStringLocalizer<HomeController> localizer, IOptions<RequestLocalizationOptions> localizationOptions)
+        public HomeController(IStringLocalizer<HomeController> localizer, IOptions<RequestLocalizationOptions> localizationOptions, WLogger logger)
         {
             _localizer = localizer;
 
@@ -30,7 +33,7 @@ namespace BreweryApplication.Controllers
                     NativeName = item.NativeName.CapitalizeFirstLetter()
                 }).ToArray();
 
-            
+            _logger = logger;
         }
 
         public IActionResult Index()

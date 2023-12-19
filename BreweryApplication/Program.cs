@@ -3,8 +3,14 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Options;
 using System.Globalization;
+using WLog;
+using PhoneModel.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddWLogger();
+
+builder.Services.AddPhonesService();
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddMvc(options => {

@@ -50,7 +50,7 @@ namespace PhoneModel.Services
         public string GetValidationNumber(string number)
         {
             string resultText = Regex.Replace(number, "[^0-9]", string.Empty);
-            if (resultText.Length < 8)
+            if (resultText.Length < 8 || resultText.Length > 15)
                 throw new Exception("The string is not a phone number.");
             resultText = resultText[0] == '0' ? resultText.Substring(1) : resultText;
             return resultText;
