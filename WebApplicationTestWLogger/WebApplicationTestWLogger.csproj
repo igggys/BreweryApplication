@@ -12,7 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PhoneModel\PhoneModel.csproj" />
     <ProjectReference Include="..\WLog\WLog.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CountryCodes.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

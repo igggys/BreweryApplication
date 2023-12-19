@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PhoneModel.Services;
 using WLog;
 
 namespace WebApplicationTestWLogger.Controllers
@@ -9,9 +10,11 @@ namespace WebApplicationTestWLogger.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly WLogger _logger;
-        public ValuesController(WLogger wLogger) 
+        private readonly PhonesService _phonesService;
+        public ValuesController(WLogger wLogger, PhonesService phonesService) 
         {
             _logger = wLogger;
+            _phonesService = phonesService;
         }
         [HttpGet]
         [Route("get")]
@@ -22,6 +25,13 @@ namespace WebApplicationTestWLogger.Controllers
             int b = 0;
             double d = a / b;
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("phone")]
+        public IActionResult GetPhone(string phone)
+        {
+            return Ok(_phonesService.GetValidationNumber(phone));
         }
     }
 }

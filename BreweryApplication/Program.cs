@@ -1,20 +1,37 @@
+using BreweryApplication.Filters;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.Options;
+using System.Globalization;
+using WLog;
+using PhoneModel.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddWLogger();
+
+builder.Services.AddPhonesService();
+
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddMvc(options => {
+    options.Filters.Add<CultureSetterFilterAttribute>();
+}).AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("uk");
+    options.SupportedCultures = new List<CultureInfo> { new CultureInfo("uk"), new CultureInfo("en") };
+    options.SupportedUICultures = new List<CultureInfo> { new CultureInfo("uk"), new CultureInfo("en") };
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+
+app.UseRequestLocalization(app.Services.GetService<IOptions<RequestLocalizationOptions>>().Value);
 
 app.UseRouting();
 
@@ -22,6 +39,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{language=uk}/{controller=Home}/{action=Index}");
 
 app.Run();

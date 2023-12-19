@@ -1,4 +1,6 @@
-﻿@{
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
     Layout = null;
 }
 
@@ -7,31 +9,67 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>IndexHome</title>
     <link href="~/css/Home/index.css" rel="stylesheet" />
     <script src="~/js/Home/index.js"></script>
 </head>
 <body>
-    <div class="TopMenuPlace" onscrollintoview = "alert('111')">
-        <div class="TopMenuLogo"></div>
-        <div class="TopMenuItemsPlace">
-            <div class="TopMenuItem"><h1><a href="https://microsoft.com">About</a></h1></div>
-            <div class="TopMenuItem" id="ServicesMenu" onclick="ThisPage.ServicesMenuShow()">Services</div>
+    <div class="TopPanel">
+        <div class="TopPanelLogo"></div>
+        <div class="LanguagesMenuButton" onclick="ThisPage.LanguagesMenuShow()">
+            <div class="LanguagesIcon"></div>
+            <div class="LanguagesText">@Html.Raw(ViewBag.currentLanguage)</div>
         </div>
     </div>
-    <div class="PopUpMenuPlace" id="ServicesPopupMenu">
-        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 1</a></h1></div>
-        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 2</a></h1></div>
-        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 3</a></h1></div>
-        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 4</a></h1></div>
-        <div class="TopMenuItem"><h1><a href="https://microsoft.com">Services 5</a></h1></div>
+
+    <div class="LanguagesPanel" id="LanguagesPopupMenu">
+        @for (int i = 0; i < ViewBag.CulturesList.Length; ++i)
+        {
+            <a href="@ViewBag.CulturesList[i].DisplayUrl">
+                <div class="LanguageRecord">
+                    @ViewBag.CulturesList[i].NativeName
+                </div>
+            </a>
+        }
     </div>
-    <div class="VideoPlace">
+
+    <div class="PlayerPlace">
         <video class="VideoPlayer" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true">
             <source src="~/video/production_id_4426550.mp4" type="video/mp4" />
         </video>
     </div>
-    <div class="VideoPlayerBackground"></div>
-
+    <div class="VideoPlayerBackground">
+        <h1>
+            @ViewBag.application_description
+        </h1>
+        <div class="BannersPlace">
+            <div class="Banner BannerBrewery">
+                Повідомте про свій продукт зацікавленим у цьому продавцям
+                <div class="ButtonJoinBackground">
+                    <a asp-controller="Registrations" asp-action="ManufactureRegistration" asp-route-language="@ViewBag.currentCulture">
+                        <div class="ButtonJoin">
+                            @Html.Raw(ViewBag.value_join)
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="Banner BannerShop">
+                Вибирайте найкращих виробників пива. Укладайте договори на найвигідніших умовах.
+                <div class="ButtonJoinBackground">
+                    <div class="ButtonJoin">
+                        @Html.Raw(ViewBag.value_join)
+                    </div>
+                </div>
+            </div>
+            <div class="Banner BannerDelivery">
+                Отримуй замовлення на перевезення та заробляй
+                <div class="ButtonJoinBackground">
+                    <div class="ButtonJoin">
+                        @Html.Raw(ViewBag.value_join)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
