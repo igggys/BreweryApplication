@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using WLog.DataLayer;
@@ -24,6 +26,35 @@ namespace WLog.Filters
         {
             if (_wLogConfigurationManager.CanRead)
             {
+                StringValues RequestIdValue;
+                Guid GuidRequestId;
+                if
+                (
+                    !context.HttpContext.Request.Headers.TryGetValue("RequestId", out RequestIdValue) ||
+                    string.IsNullOrEmpty(RequestIdValue.ToString()) ||
+                    !Guid.TryParse(RequestIdValue.ToString(), out GuidRequestId)
+                )
+                {
+                    GuidRequestId = Guid.NewGuid();
+                }
+
+
+                LogRecord record = ((LogRecord)(context.HttpContext.Items["LogRecord"]));
+                if (record == null)
+                {
+                    record = new()
+                    {
+                        RequestId = GuidRequestId,
+                        Arguments = string.Empty,
+                        Method = context.HttpContext.Request.Method,
+                        Url = $"{context.HttpContext.Request.Scheme}://{context.HttpContext.Request.Host}{context.HttpContext.Request.Path}{context.HttpContext.Request.QueryString.ToString()}",
+                        ApplicationName = Assembly.GetEntryAssembly().GetName().Name,
+                        Start = DateTime.UtcNow,
+                        End = null,
+                        Messages = new()
+                    };
+                    context.HttpContext.Items.Add("LogRecord", record);
+                }
                 ((LogRecord)(context.HttpContext.Items["LogRecord"])).Exception = $"{context.Exception.Message}:\r\n{context.Exception.StackTrace}";
                 ((LogRecord)(context.HttpContext.Items["LogRecord"])).End = DateTime.UtcNow;
                 await _dataManager.WriteAsync(((LogRecord)(context.HttpContext.Items["LogRecord"])));

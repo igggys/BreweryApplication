@@ -25,13 +25,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManufacturesWebApp", "Manuf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommonLibraries", "CommonLibraries", "{0C331D38-1E2E-4E09-B6BE-BC51E5FDEBDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductLib", "ProductLib\ProductLib.csproj", "{0B7E7DDE-549C-4543-A62F-451EF8A09FBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductLib", "ProductLib\ProductLib.csproj", "{0B7E7DDE-549C-4543-A62F-451EF8A09FBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufactureModels", "Manufacture\ManufactureModels.csproj", "{8BDA85C1-3A81-46EE-88FE-8150BD5C5A6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManufactureModels", "Manufacture\ManufactureModels.csproj", "{8BDA85C1-3A81-46EE-88FE-8150BD5C5A6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceSecurityClient", "ServiceSecurityClient\ServiceSecurityClient.csproj", "{F7A810D6-6A5E-422A-B534-2D3DCF495C2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceSecurityClient", "ServiceSecurityClient\ServiceSecurityClient.csproj", "{F7A810D6-6A5E-422A-B534-2D3DCF495C2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceSecurityServer", "ServiceSecurityServer\ServiceSecurityServer.csproj", "{6D3918D3-0153-4CAF-B356-2D3B09FAD64B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceSecurityServer", "ServiceSecurityServer\ServiceSecurityServer.csproj", "{6D3918D3-0153-4CAF-B356-2D3B09FAD64B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneModel", "PhoneModel\PhoneModel.csproj", "{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,10 @@ Global
 		{6D3918D3-0153-4CAF-B356-2D3B09FAD64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D3918D3-0153-4CAF-B356-2D3B09FAD64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D3918D3-0153-4CAF-B356-2D3B09FAD64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +113,7 @@ Global
 		{8BDA85C1-3A81-46EE-88FE-8150BD5C5A6F} = {0C331D38-1E2E-4E09-B6BE-BC51E5FDEBDF}
 		{F7A810D6-6A5E-422A-B534-2D3DCF495C2E} = {0C331D38-1E2E-4E09-B6BE-BC51E5FDEBDF}
 		{6D3918D3-0153-4CAF-B356-2D3B09FAD64B} = {0C331D38-1E2E-4E09-B6BE-BC51E5FDEBDF}
+		{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9} = {0C331D38-1E2E-4E09-B6BE-BC51E5FDEBDF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {67329D20-BDCA-4C92-8D76-DD92E8FB54EB}

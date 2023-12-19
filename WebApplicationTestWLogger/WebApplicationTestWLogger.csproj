@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PhoneModel\PhoneModel.csproj" />
     <ProjectReference Include="..\WLog\WLog.csproj" />
   </ItemGroup>
 

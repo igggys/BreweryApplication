@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CryptoLib\CryptoLib.csproj" />
+    <ProjectReference Include="..\PhoneModel\PhoneModel.csproj" />
   </ItemGroup>
 
 </Project>
