@@ -3,7 +3,7 @@
     this.LanguagesPopupMenuVisible;
     this.LanguagesMenuShow = function () {
         let popUpMenu = document.getElementById("LanguagesPopupMenu");
-        
+
         if (this.LanguagesPopupMenuVisible) {
             popUpMenu.style.display = "none";
             this.LanguagesPopupMenuVisible = false;
@@ -22,8 +22,3 @@ window.onclick = function (event) {
         ThisPage.LanguagesMenuShow();
     }
 }
-
-
-
-
-

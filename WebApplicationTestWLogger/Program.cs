@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using WLog;
+using PhoneModel.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddSwaggerGen();
 
 //adding logger to application
 builder.Services.AddWLogger();
+
+builder.Services.AddPhonesService();
 
 var app = builder.Build();
 

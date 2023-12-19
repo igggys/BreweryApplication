@@ -1,28 +1,20 @@
-﻿using BreweryApplication.Filters;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using Microsoft.Extensions.Localization;
-using System.Globalization;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
-using BreweryApplication.Extensions;
+﻿using BreweryApplication.Extensions;
 using BreweryApplication.Models;
 using Microsoft.AspNetCore.Http.Extensions;
-using PhoneModel.Services;
-using WLog;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
+using System.Globalization;
 
 namespace BreweryApplication.Controllers
 {
-    
-
-    public class HomeController : Controller
+    public class RegistrationsController : Controller
     {
-        private readonly WLogger _logger;
         private readonly IStringLocalizer<HomeController> _localizer;
         public LanguageInfo[] _supportedCultures;
-        public string _currentLanguage;
         public string _currentCulture;
-        public HomeController(IStringLocalizer<HomeController> localizer, IOptions<RequestLocalizationOptions> localizationOptions, WLogger logger)
+
+        public RegistrationsController(IStringLocalizer<HomeController> localizer, IOptions<RequestLocalizationOptions> localizationOptions)
         {
             _localizer = localizer;
 
@@ -32,29 +24,23 @@ namespace BreweryApplication.Controllers
                     TwoLetterISOLanguageName = item.TwoLetterISOLanguageName,
                     NativeName = item.NativeName.CapitalizeFirstLetter()
                 }).ToArray();
-
-            _logger = logger;
         }
-
-        public IActionResult Index()
+        public IActionResult ManufactureRegistration()
         {
             UpdateSupportedCultures();
             ViewBag.CulturesList = _supportedCultures;
-            ViewBag.currentLanguage = _currentLanguage;
-            ViewBag.value_join = _localizer.GetString("joinButtonText");
-            ViewBag.application_description = _localizer.GetString("ApplicationDescription");
-            ViewBag.currentCulture = _currentCulture;
+            ViewBag.currentLanguage = _currentCulture;
             return View();
         }
 
         private void UpdateSupportedCultures()
         {
             CultureInfo currentCulture = ((CultureInfo)(HttpContext.Items["CurrentUICulture"]));
-            _currentCulture = currentCulture.TwoLetterISOLanguageName;
+            var currentLanguage = currentCulture.TwoLetterISOLanguageName;
             var displayUrl = Request.GetDisplayUrl();
 
-            if (displayUrl.Contains(_currentCulture))
-                displayUrl = displayUrl.Replace(_currentCulture, "lang");
+            if (displayUrl.Contains(currentLanguage))
+                displayUrl = displayUrl.Replace(currentLanguage, "lang");
             else
                 displayUrl += "lang";
 
@@ -63,8 +49,7 @@ namespace BreweryApplication.Controllers
                 supportedCulture.DisplayUrl = displayUrl.Replace("lang", supportedCulture.TwoLetterISOLanguageName);
             }
 
-            _currentLanguage = currentCulture.NativeName.CapitalizeFirstLetter();
+            _currentCulture = currentCulture.NativeName.CapitalizeFirstLetter();
         }
-
     }
 }

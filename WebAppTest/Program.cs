@@ -3,6 +3,7 @@ using WebAppTest.Filters;
 using WebAppTest.Infrastructure;
 using Microsoft.Extensions.Caching.Memory;
 using WebAppTest.Services;
+using PhoneModel.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,7 @@ builder.Services.AddSingleton<SessionsManager>();
 builder.Services.AddSingleton<Connector>();
 
 builder.Services.AddControllers();
-
+builder.Services.AddPhonesService();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
