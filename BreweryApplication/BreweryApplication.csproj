@@ -22,7 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\css\Registrations\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Infrastructure\" />
     <Folder Include="wwwroot\js\Registrations\" />
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>

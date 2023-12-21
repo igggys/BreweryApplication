@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -6,6 +8,7 @@
     <title>@ViewBag.Title</title>
     <link href="~/css/Masters/_RegistrationsLayout.css" rel="stylesheet" />
     <script src="~/js/Masters/MasterRegistrations.js"></script>
+    @RenderSection("Header")
 </head>
 <body>
     <div class="TopPanel">
@@ -19,15 +22,17 @@
     <div class="LanguagesPanel" id="LanguagesPopupMenu">
         @for (int i = 0; i < ViewBag.CulturesList.Length; ++i)
         {
-            <a href="@ViewBag.CulturesList[i].DisplayUrl">
+            <a asp-controller="Registrations" asp-action="ManufactureRegistration" asp-route-language="@ViewBag.CulturesList[i].TwoLetterISOLanguageName">
                 <div class="LanguageRecord">
                     @ViewBag.CulturesList[i].NativeName
                 </div>
             </a>
         }
     </div>
-    <div>
-        @RenderBody()
+
+    <div class="ContentPlace">
+        @RenderSection("Content")
     </div>
+
 </body>
 </html>

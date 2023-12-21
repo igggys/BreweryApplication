@@ -1,10 +1,10 @@
-using BreweryApplication.Filters;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Options;
 using System.Globalization;
 using WLog;
 using PhoneModel.Services;
+using BreweryApplication.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +13,7 @@ builder.Services.AddWLogger();
 builder.Services.AddPhonesService();
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-builder.Services.AddMvc(options => {
-    options.Filters.Add<CultureSetterFilterAttribute>();
-}).AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
-
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -34,6 +31,8 @@ app.UseStaticFiles();
 app.UseRequestLocalization(app.Services.GetService<IOptions<RequestLocalizationOptions>>().Value);
 
 app.UseRouting();
+
+app.UseMiddleware<CultureSetterMiddleware>();
 
 app.UseAuthorization();
 

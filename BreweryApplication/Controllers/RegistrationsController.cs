@@ -5,51 +5,43 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using System.Globalization;
+using WLog;
 
 namespace BreweryApplication.Controllers
 {
     public class RegistrationsController : Controller
     {
+        private readonly WLogger _logger;
         private readonly IStringLocalizer<HomeController> _localizer;
+        private readonly IOptions<RequestLocalizationOptions> _localizationOptions;
         public LanguageInfo[] _supportedCultures;
+        public string _currentLanguage;
         public string _currentCulture;
 
-        public RegistrationsController(IStringLocalizer<HomeController> localizer, IOptions<RequestLocalizationOptions> localizationOptions)
+        public RegistrationsController(IStringLocalizer<HomeController> localizer, IOptions<RequestLocalizationOptions> localizationOptions, WLogger logger)
         {
             _localizer = localizer;
+            _logger = logger;
+            _localizationOptions = localizationOptions;
 
-            _supportedCultures = localizationOptions.Value.SupportedCultures.Select(
+            _supportedCultures = _localizationOptions.Value.SupportedCultures.Select(
                 item => new LanguageInfo
                 {
                     TwoLetterISOLanguageName = item.TwoLetterISOLanguageName,
                     NativeName = item.NativeName.CapitalizeFirstLetter()
                 }).ToArray();
+
+            _currentCulture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+            _currentLanguage = Thread.CurrentThread.CurrentUICulture.NativeName.CapitalizeFirstLetter();
         }
+
         public IActionResult ManufactureRegistration()
         {
-            UpdateSupportedCultures();
             ViewBag.CulturesList = _supportedCultures;
-            ViewBag.currentLanguage = _currentCulture;
+            ViewBag.currentLanguage = _currentLanguage;
+            ViewBag.currentCulture = _currentCulture;
+
             return View();
-        }
-
-        private void UpdateSupportedCultures()
-        {
-            CultureInfo currentCulture = ((CultureInfo)(HttpContext.Items["CurrentUICulture"]));
-            var currentLanguage = currentCulture.TwoLetterISOLanguageName;
-            var displayUrl = Request.GetDisplayUrl();
-
-            if (displayUrl.Contains(currentLanguage))
-                displayUrl = displayUrl.Replace(currentLanguage, "lang");
-            else
-                displayUrl += "lang";
-
-            foreach (var supportedCulture in _supportedCultures)
-            {
-                supportedCulture.DisplayUrl = displayUrl.Replace("lang", supportedCulture.TwoLetterISOLanguageName);
-            }
-
-            _currentCulture = currentCulture.NativeName.CapitalizeFirstLetter();
         }
     }
 }
