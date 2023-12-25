@@ -35,10 +35,7 @@ namespace PhoneModel.Services
                         new Country
                         {
                             Code = country.Code,
-                            CountryName =
-                            { Text = country.CountryNames.FirstOrDefault(name => name.Language == language).Text,
-                                Language = language
-                            }
+                            CountryName = country.CountryNames.FirstOrDefault(item => item.Language == language).Text
                         }
                         ).ToArray();  
                 return result;
