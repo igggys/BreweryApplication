@@ -85,7 +85,7 @@
 }
 .PhoneCodeTextBox {
     width: 150px;
-    height: 30px;
+    height: 33px;
     border: none;
     border-bottom-width: 2px;
     border-bottom-style: solid;
@@ -93,6 +93,11 @@
     outline: none;
     font-size: 18px;
     font-weight: 700;
+    color: #3F52C9;
+}
+.PhoneCodeOption {
+    font-size: 14px;
+    font-weight: 400;
     color: #3F52C9;
 }
 .PhoneNumberTextBox {
@@ -126,6 +131,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: #3F52C9;
+    background-color: #6178D1;
 }
+    .Button:hover {
+        background-color: #3F52C9;
+    }
+
 

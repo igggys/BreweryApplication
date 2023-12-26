@@ -8,8 +8,8 @@ namespace PhoneModel.Models
 {
     public class Country
     {
-        public string CountryName { get; set; }
         public string Code { get; set; }
+        public string DisplayText { get; set; }
     }
     public class CountryData
     {
