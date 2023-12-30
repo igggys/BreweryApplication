@@ -18,7 +18,7 @@
 
         <div class="TitleBorder">
             <div class="Title">
-                @Html.Raw(ViewBag.Registration_for_brewers);
+                @Html.Raw(ViewBag.Registration_for_brewers)
             </div>
         </div>
 
@@ -74,7 +74,7 @@
                     <script type="text/javascript">
                         ThisRegistrationPage.Start();
                     </script>
-                    <input id="PhoneNumberTextBox" class="PhoneNumberTextBox" type="tel" onkeyup="ThisRegistrationPage.PhoneInput()" />
+                    <input id="PhoneNumberTextBox" class="PhoneNumberTextBox" type="tel" onkeyup="ThisRegistrationPage.PhoneInput()"  maxlength="12" />
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
                         @Html.Raw(ViewBag.The_name_of_the_manufacturers_contact_person) (@Html.Raw(ViewBag.necessarily))
                     </div>
                 </div>
-                <input class="TextBox" type="text" maxlength="12" />
+                <input class="TextBox" type="text" />
             </div>
         </div>
 

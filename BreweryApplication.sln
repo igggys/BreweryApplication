@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceSecurityClient", "Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceSecurityServer", "ServiceSecurityServer\ServiceSecurityServer.csproj", "{6D3918D3-0153-4CAF-B356-2D3B09FAD64B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneModel", "PhoneModel\PhoneModel.csproj", "{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneModel", "PhoneModel\PhoneModel.csproj", "{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communications", "Communications\Communications.csproj", "{E473A957-7EA4-43B1-AE01-685479C95CC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,10 @@ Global
 		{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E473A957-7EA4-43B1-AE01-685479C95CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E473A957-7EA4-43B1-AE01-685479C95CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E473A957-7EA4-43B1-AE01-685479C95CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E473A957-7EA4-43B1-AE01-685479C95CC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +120,7 @@ Global
 		{F7A810D6-6A5E-422A-B534-2D3DCF495C2E} = {0C331D38-1E2E-4E09-B6BE-BC51E5FDEBDF}
 		{6D3918D3-0153-4CAF-B356-2D3B09FAD64B} = {0C331D38-1E2E-4E09-B6BE-BC51E5FDEBDF}
 		{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9} = {0C331D38-1E2E-4E09-B6BE-BC51E5FDEBDF}
+		{E473A957-7EA4-43B1-AE01-685479C95CC2} = {0C331D38-1E2E-4E09-B6BE-BC51E5FDEBDF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {67329D20-BDCA-4C92-8D76-DD92E8FB54EB}
