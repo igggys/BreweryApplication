@@ -12,18 +12,15 @@ namespace WebAppSendMessageService.Controllers
     public class MessageController : ControllerBase
     {
         private readonly WLogger _logger;
-        private readonly SmsMessageProvider _smsMessageProvider;
         private readonly IMessageProvider _emailMessageProvider;
         private readonly ISmsService _turboSmsService;
 
         public MessageController(
             WLogger wLogger, 
-            SmsMessageProvider smsMessageProvider,
             IMessageProvider emailMessageProvider,
             ISmsService turboSmsService)
         {
             _logger = wLogger;
-            _smsMessageProvider = smsMessageProvider;
             _emailMessageProvider = emailMessageProvider;
             _turboSmsService = turboSmsService;
         }
