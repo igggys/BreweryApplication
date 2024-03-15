@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceSecurityClient", "Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceSecurityServer", "ServiceSecurityServer\ServiceSecurityServer.csproj", "{6D3918D3-0153-4CAF-B356-2D3B09FAD64B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneModel", "PhoneModel\PhoneModel.csproj", "{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneModel", "PhoneModel\PhoneModel.csproj", "{F2F6C2BB-5886-47F4-8B5B-48F64930B1A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
