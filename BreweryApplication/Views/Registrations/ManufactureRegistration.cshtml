@@ -4,5 +4,96 @@
     Layout = "~/Views/Masters/_RegistrationsLayout.cshtml";
 }
 
-<h1>ManufactureRegistration</h1>
+@section Header {
+    <link href="~/css/Registrations/CommonStyleSheet.css" rel="stylesheet" />
+    <script type="text/javascript">
+        let countryCodes = @Html.Raw(ViewBag.countryCodesJson);
+    </script>
+    <script src="~/js/Registrations/ManufactureRegistration.js"></script>
+    
+}
+
+@section Content {
+    <div class="FormBackgroung">
+
+        <div class="TitleBorder">
+            <div class="Title">
+                @Html.Raw(ViewBag.Registration_for_brewers)
+            </div>
+        </div>
+
+        <div class="FieldBorder">
+            <div class="FieldBackground">
+                <div class="FieldTitleBorder">
+                    <div class="FieldTitle">
+                        @Html.Raw(ViewBag.The_name_of_the_brewery) (@Html.Raw(ViewBag.if_there_is))
+                    </div>
+                </div>
+                <input class="TextBox" type="text" />
+            </div>
+        </div>
+
+        <div class="FieldBorder">
+            <div class="FieldBackground">
+                <div class="FieldTitleBorder">
+                    <div class="FieldTitle">
+                        @Html.Raw(ViewBag.Description_of_production) (@Html.Raw(ViewBag.if_there_is))
+                    </div>
+                </div>
+                <textarea class="TextArea"></textarea>
+            </div>
+        </div>
+
+        <div class="FieldBorder">
+            <div class="FieldBackground">
+                <div class="FieldTitleBorder">
+                    <div class="FieldTitle">
+                        @Html.Raw(ViewBag.Email) (@Html.Raw(ViewBag.necessarily))
+                    </div>
+                </div>
+                <input class="TextBox" type="email" />
+            </div>
+        </div>
+
+        <div class="FieldBorder">
+            <div class="FieldBackground">
+                <div class="FieldTitleBorder">
+                    <div class="FieldTitle">
+                        @Html.Raw(ViewBag.Phone) (@Html.Raw(ViewBag.necessarily))
+                    </div>
+                </div>
+                <div class="PhoneBackground">
+                    <select class="PhoneCodeTextBox" id="CountryCode" onchange="ThisRegistrationPage.DisplaySelectedCode()" onclick="ThisRegistrationPage.CountryCodesOpen()" onblur="ThisRegistrationPage.CountryCodesOnBlur()">
+                        @for (int i = 0; i < ViewBag.countries.Length; ++i)
+                        {
+                            <option class="PhoneCodeOption" value='@ViewBag.countries[i].Code'>
+                                    @ViewBag.countries[i].DisplayText
+                            </option>
+                        }
+                    </select>
+                    <script type="text/javascript">
+                        ThisRegistrationPage.Start();
+                    </script>
+                    <input id="PhoneNumberTextBox" class="PhoneNumberTextBox" type="tel" onkeyup="ThisRegistrationPage.PhoneInput()"  maxlength="12" />
+                </div>
+            </div>
+        </div>
+
+        <div class="FieldBorder">
+            <div class="FieldBackground">
+                <div class="FieldTitleBorder">
+                    <div class="FieldTitle">
+                        @Html.Raw(ViewBag.The_name_of_the_manufacturers_contact_person) (@Html.Raw(ViewBag.necessarily))
+                    </div>
+                </div>
+                <input class="TextBox" type="text" />
+            </div>
+        </div>
+
+        <div class="ButtonsBorder">
+            <div class="Button">@Html.Raw(ViewBag.Registration)</div>
+            <div class="Button">@Html.Raw(ViewBag.cancellation)</div>
+        </div>
+    </div>
+}
 

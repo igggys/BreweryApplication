@@ -25,7 +25,7 @@
     <div class="LanguagesPanel" id="LanguagesPopupMenu">
         @for (int i = 0; i < ViewBag.CulturesList.Length; ++i)
         {
-            <a href="@ViewBag.CulturesList[i].DisplayUrl">
+            <a asp-controller="Home" asp-action="Index" asp-route-language="@ViewBag.CulturesList[i].TwoLetterISOLanguageName">
                 <div class="LanguageRecord">
                     @ViewBag.CulturesList[i].NativeName
                 </div>
