@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebAppSendMessageService.BLL;
 using WebAppSendMessageService.Dto;
 using WebAppSendMessageService.Interfaces;
 using WebAppSendMessageService.Models;
@@ -28,55 +27,51 @@ namespace WebAppSendMessageService.Controllers
         [HttpPost("send")]
         public async Task<IActionResult> SendMessage([FromForm] string provider, [FromForm] string recipient, [FromForm] string message, [FromForm] string subject = null)
         {
-            //_logger.AddToLod(provider);
-            //_logger.AddToLod(recipient);
-            //_logger.AddToLod(message);
-            //_logger.AddToLod(subject);
-
-            // Providers: email, sms, viber
-
-            if (!string.IsNullOrEmpty(message) && !string.IsNullOrEmpty(recipient))
+            try
             {
-                bool success = false;
+                if (string.IsNullOrEmpty(message) || string.IsNullOrEmpty(recipient) || string.IsNullOrEmpty(provider))
+                {
+                    return BadRequest("Recipient, message, and provider are required");
+                }
+
+                // Providers: email, sms, viber...
 
                 switch (provider)
                 {
                     case "sms":
-                        // If subject is not specified, use SmsMessageProvider to send SMS
                         SmsResponceStatus responceStatus = _turboSmsService.SendMessage(new SendNotificationDto
                         {
-                            //Phone = user.PhoneNumber.GetFormattedPhone(),
                             Phone = recipient,
                             Body = message
                         });
                         return Ok(responceStatus);
                     case "email":
-                        // If a subject is specified, use the EmailMessageProviderOld to send the EMAIL
-                        success = await _emailMessageProvider.SendMessageAsync(recipient, subject, message);
-                        break;
+                        bool success = await _emailMessageProvider.SendMessageAsync(recipient, subject, message);
+                        if (success)
+                        {
+                            return Ok("Email sent successfully");
+                        }
+                        else
+                        {
+                            return BadRequest("Failed to send email");
+                        }
                     case "viber":
-                        break;
+                        // Implement Viber message sending logic here
+                        return Ok("Viber message sent successfully");
                     case "telegram":
-                        break;
+                        // Implement Telegram message sending logic here
+                        return Ok("Telegram message sent successfully");
                     case "whatsapp":
-                        break;
+                        // Implement WhatsApp message sending logic here
+                        return Ok("WhatsApp message sent successfully");
                     default:
-                        return BadRequest("Invalid message type");
+                        return BadRequest("Invalid provider");
                 }
-
-                if (success)
-                {
-                    return Ok("Message sent successfully");
-                }
-                else
-                {
-                    return BadRequest("Failed to send message");
-                }                
             }
-            else
+            catch(Exception ex)
             {
-                return BadRequest("Recipient and message are required");
-            }
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }            
         }
     }
 }

@@ -1,0 +1,12 @@
+{
+  "provider": "sms",
+  "recipient": "380631620725",
+  "messageText": "Test sms mrssage",
+  "subject": ""
+},
+{
+  "provider": "email",
+  "recipient": "dima.dziubenko1@gmail.com",
+  "messageText": "Test email message",
+  "subject": "Testing email messaging"
+}
