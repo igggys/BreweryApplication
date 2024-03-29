@@ -4,7 +4,7 @@ using WebAppSendMessageService.Domain.Entities;
 
 namespace WebAppSendMessageService.DataAccess.Services
 {
-    public class MessageMSSQLService : IMessageSqlService
+    public class MessageMSSQLService : IMessageDbService
     {
         private readonly SendMessageServiceSQLContext _context;
 

@@ -14,13 +14,13 @@ namespace WebAppSendMessageService.Controllers
         private readonly WLogger _logger;
         private readonly IEmailService _emailService;
         private readonly ISmsService _turboSmsService;
-        private readonly IMessageSqlService _messageSqlService;
+        private readonly IMessageDbService _messageSqlService;
 
         public MessageController(
             WLogger wLogger,
             IEmailService emailService,
             ISmsService turboSmsService,
-            IMessageSqlService messageSqlService)
+            IMessageDbService messageSqlService)
         {
             _logger = wLogger;
             _emailService = emailService;

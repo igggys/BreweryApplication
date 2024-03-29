@@ -2,7 +2,7 @@
 
 namespace WebAppSendMessageService.DataAccess.Interfaces
 {
-    public interface IMessageSqlService
+    public interface IMessageDbService
     {
         Task<IEnumerable<Message>> GetAllAsync();
         Task<Message> GetByIdAsync(int id);

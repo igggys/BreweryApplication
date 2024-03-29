@@ -11,18 +11,8 @@ using WLog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//builder.Services.AddControllers();
-builder.Services.AddControllers()
-    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-    .AddDataAnnotationsLocalization();
+builder.Services.AddControllers();
 
-builder.Services.Configure<RequestLocalizationOptions>(
-    options =>
-    {
-        options.DefaultRequestCulture = new RequestCulture(CultureInfo.InvariantCulture);
-        options.SupportedCultures = new List<CultureInfo> { CultureInfo.InvariantCulture };
-        options.SupportedUICultures = new List<CultureInfo> { CultureInfo.InvariantCulture };
-    });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 //==================================================================================================================
 builder.Services.AddSingleton<ISmsService, TurboSmsService>();
@@ -31,7 +21,7 @@ builder.Services.AddTransient<IEmailService, EmailService>();
 
 builder.Services.AddDbContext<SendMessageServiceSQLContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MSSQLConnection")));
-builder.Services.AddScoped<IMessageSqlService, MessageMSSQLService>();
+builder.Services.AddScoped<IMessageDbService, MessageMSSQLService>();
 
 //adding logger to application
 builder.Services.AddWLogger();
@@ -40,13 +30,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
-app.UseRequestLocalization(new RequestLocalizationOptions
-{
-    DefaultRequestCulture = new RequestCulture(CultureInfo.InvariantCulture),
-    SupportedCultures = new List<CultureInfo> { CultureInfo.InvariantCulture },
-    SupportedUICultures = new List<CultureInfo> { CultureInfo.InvariantCulture }
-});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
